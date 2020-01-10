@@ -37,6 +37,7 @@
   color: #FFFFFF;
   font-size: 14px;
   transition: all 0.3s ease;
+  -webkit-transition: all 0.3s ease;
   cursor: pointer;
 }
 
