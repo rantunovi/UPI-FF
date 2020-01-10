@@ -9,9 +9,11 @@
   z-index: 1;
   background: #FFFFFF;
   max-width: 360px;
-  margin: 0 auto 100px;
+  margin:auto;
+  margin-top: 15%;
   padding: 45px;
   text-align: center;
+  border-radius: 5px;
   box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2), 0 5px 5px 0 rgba(0, 0, 0, 0.24);
 }
 .register-form input {
@@ -25,9 +27,8 @@
   box-sizing: border-box;
   font-size: 14px;
 }
-.register-form button {
+.register-form input[type="submit"] {
   font-family: "Roboto", sans-serif;
-  text-transform: uppercase;
   outline: 0;
   background: #4CAF50;
   width: 100%;
@@ -35,8 +36,7 @@
   padding: 15px;
   color: #FFFFFF;
   font-size: 14px;
-  -webkit-transition: all 0.3 ease;
-  transition: all 0.3 ease;
+  transition: all 0.3s ease;
   cursor: pointer;
 }
 
@@ -46,7 +46,7 @@
     color: white;
 }
 
-.register-form button:hover,.form button:active,.form button:focus {
+.register-form input[type="submit"]:hover {
   background: #43A047;
 }
 .register-form .message {

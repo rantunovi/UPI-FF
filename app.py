@@ -12,6 +12,11 @@ debug(True)
 def send_css(filename):
     return static_file(filename, root=dirname+'/static/assets/css')
 
+    
+@app.route('/static/<filename:re:.*\.jpg>')
+def send_css(filename):
+    return static_file(filename, root=dirname+'/static/assets/resources')
+
 @app.route('/static/<filename:re:.*\.css.map>')
 def send_cssmap(filename):
     return static_file(filename, root=dirname+'/static/assets/css')
