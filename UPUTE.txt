@@ -1,0 +1,18 @@
+upute:
+
+1) instalirati Python (ukoliko ga imate instaliranog, preskočiti korak)
+2) otvoriti Command prompt (konzolni prozor)
+3) instalirati pip s naredbom: "curl https://bootstrap.pypa.io/get-pip.py -o get-pip.py"
+	ova naredba će downloadati python skriptu za instalaciju pip alata
+4) pokrenuti instalacijsku pip skriptu naredbom: "python get-pip.py"
+5) instalirati bottlepy server s naredbom: "pip install bottle"
+6) pokrenuti app.py i otvoriti http://localhost:8080/ u web pregledniku
+
+server bi se trebao pokrenuti.
+
+Hot reloading za HTML datoteke je uključen. 
+Ne trebate pokretati ponovo app.py skriptu pri promjenama u HTML-u.
+Ukoliko radite promjene u app.py ili nekoj drugoj skripti koja se koristi i importa u app.py onda se mora ponovo 
+pokrenuti app.py
+
+Happy coding! :)
