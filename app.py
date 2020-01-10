@@ -52,10 +52,6 @@ def createUser():
     UsersTxt.write('{};{};{}\n'.format(user.name, user.em, user.pw))
     UsersTxt.close()
 
-    
-#def writeToTxt((User)listOfUsers):
-#    for u in listOfUsers:
-#        UsersTxt.write(u.name)
 
 run(app, host='localhost', port = 8080)
 
