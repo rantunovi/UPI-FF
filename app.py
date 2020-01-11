@@ -13,7 +13,7 @@ def send_css(filename):
     return static_file(filename, root=dirname+'/static/assets/css')
 
     
-@app.route('/static/<filename:re:.*\.jpg>')
+@app.route('/static/<filename:re:.*\.jpg>') # Promjena za jpg fileove
 def send_css(filename):
     return static_file(filename, root=dirname+'/static/assets/resources')
 
