@@ -3,8 +3,11 @@ template, debug, get, route, static_file, post, request
 
 import os, sys
 
-dirname = os.path.dirname(sys.argv[0])
+#from baza import unesi_demo_podatke, procitaj_sve_podatke, sacuvaj_novi_fast_food, dohvati_fast_food_po_id, azuriraj_fast_food, izbrisi_fast_food
+#unesi_demo_podatke()
+#procitaj_sve_podatke()
 
+dirname = os.path.dirname(sys.argv[0])
 app = Bottle()
 debug(True)
 
@@ -12,7 +15,6 @@ debug(True)
 def send_css(filename):
     return static_file(filename, root=dirname+'/static/assets/css')
 
-    
 @app.route('/static/<filename:re:.*\.jpg>')
 def send_css(filename):
     return static_file(filename, root=dirname+'/static/assets/resources')
