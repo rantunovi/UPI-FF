@@ -12,7 +12,7 @@ from proizvod_fast_food import Proizvod_fast_food
 from stavka import Stavka
 
 def unesi_demo_podatke():
-    conn = sqlite3.connect("upi_projekt.db")
+    conn = sqlite3.connect("UPI-FF.db")
     try:
 
         cur = conn.cursor()
@@ -65,10 +65,14 @@ def unesi_demo_podatke():
         
 
         cur.execute("INSERT INTO fast_food_ovi (naziv, adresa, telefon) VALUES (?, ?, ?)", ("Kresina pecenjara", "Pecenjariceva 10", "021/8080-8080"))
+        conn.commit()
         cur.execute("INSERT INTO korisnici (ime, email, password) VALUES (?, ?, ?)", ("Kreso", "kresko@email.com", "kresko"))
+        conn.commit()
         cur.execute("INSERT INTO proizvodi (naziv) VALUES (?)", ("Burger"))
+        conn.commit()
         cur.execute("INSERT INTO proizvodi (naziv) VALUES (?)", ("Pizza skampi"))
-        cur.execute("INSERT INTO proizvodi_fast_food (cijena) VALUES (?)", (30)
+        conn.commit()
+        cur.execute("INSERT INTO proizvodi_fast_food (cijena) VALUES (?)", (30))
         conn.commit()
 
         print("uspjesno uneseni testni podaci u tablicu fast_food_ovi!")
@@ -145,7 +149,7 @@ def izbrisi_fast_food(_id_fast_food):
 
 def dohvati_fast_food_po_id(_id_fast_food):
     conn = sqlite3.connect("UPI-FF.db")
-    profesor = None
+    fast_food = None
     try:
 
         cur = conn.cursor()
@@ -162,7 +166,7 @@ def dohvati_fast_food_po_id(_id_fast_food):
         conn.rollback()
 
     conn.close()
-    return profesor
+    return fast_food
 
 def azuriraj_fast_food(_id_fast_food, naziv, adresa, telefon):
     conn = sqlite3.connect("UPI-FF.db")

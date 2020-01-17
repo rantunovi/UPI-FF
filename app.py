@@ -1,6 +1,5 @@
 from bottle import Bottle, run, \
-template, debug, get, route, static_file, post, request
-
+     template, debug, get, request, redirect, post, route, static_file
 import os, sys
 
 #from baza import unesi_demo_podatke, procitaj_sve_podatke, sacuvaj_novi_fast_food, dohvati_fast_food_po_id, azuriraj_fast_food, izbrisi_fast_food
@@ -38,13 +37,18 @@ def index():
            "developer_organization": "PMF"}
     return template('index.html', data = data)
 
+#@app.get('/register')
+#def index():
+   
+  #  return template('register.html', data = data)
+
 class User(object):
     def __init__(self, name, em, pw):
         self.name = name
         self.em = em
         self.pw = pw
 
-@app.post('/create')
+@app.post('/login')
 def createUser():
     name = request.forms.get('username')
     email = request.forms.get('email')
@@ -55,6 +59,5 @@ def createUser():
     UsersTxt.close()
 
 
-run(app, host='localhost', port = 8080)
 
 
