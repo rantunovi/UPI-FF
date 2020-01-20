@@ -2,8 +2,8 @@ from bottle import Bottle, run, \
      template, debug, get, request, redirect, post, route, static_file
 import os, sys
 
-#from baza import unesi_demo_podatke, procitaj_sve_podatke, sacuvaj_novi_fast_food, dohvati_fast_food_po_id, azuriraj_fast_food, izbrisi_fast_food
-#unesi_demo_podatke()
+from baza import unesi_demo_podatke, procitaj_sve_podatke, sacuvaj_novi_fast_food, dohvati_fast_food_po_id, azuriraj_fast_food, izbrisi_fast_food, sacuvaj_novog_korisnika
+unesi_demo_podatke()
 #procitaj_sve_podatke()
 
 dirname = os.path.dirname(sys.argv[0])
@@ -37,10 +37,13 @@ def index():
            "developer_organization": "PMF"}
     return template('index.html', data = data)
 
-#@app.get('/register')
-#def index():
-   
-  #  return template('register.html', data = data)
+@app.get('/order')
+def index():
+    return template('order.html', data = None)
+
+@app.get('/register')
+def index():
+    return template('register.html', data = None)
 
 class User(object):
     def __init__(self, name, em, pw):
@@ -48,16 +51,14 @@ class User(object):
         self.em = em
         self.pw = pw
 
-@app.post('/login')
+@app.post('/register')
 def createUser():
     name = request.forms.get('username')
     email = request.forms.get('email')
     password = request.forms.get('password')
-    user = User(name, email, password)
-    UsersTxt = open("login_data.txt", "w")
-    UsersTxt.write('{};{};{}\n'.format(user.name, user.em, user.pw))
-    UsersTxt.close()
 
+    sacuvaj_novog_korisnika(name, email, password)
+    #procitaj_sve_podatke()
+    redirect('/order')
 
-
-
+run(app, host="127.0.0.1", port="8080")

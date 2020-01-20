@@ -62,6 +62,26 @@
 .register-form .register-form {
   display: none;
 }
+
+.form-control .button{
+  display:inline-block;
+  text-decoration:none;
+  color:rgba(58, 53, 65, 0.8);
+  font-weight:bold;
+  border:none;
+  border-radius:12px;
+  text-align:center;
+  background-color:rgba(181, 186, 197, 0.15);
+    margin:10px;
+  padding: 10px;
+  transition: 0.1s ease-in-out all;
+  outline: none;
+ }
+.form-control .button:hover{
+  cursor: pointer;
+  color:rgb(97, 99, 104);
+  box-shadow:4px 3px 4px 1px #e3e5f1;
+}
 .container {
   position: relative;
   z-index: 1;

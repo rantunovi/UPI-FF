@@ -21,7 +21,7 @@ def unesi_demo_podatke():
         DROP TABLE IF EXISTS fast_food_ovi;
 
         CREATE TABLE fast_food_ovi (
-        id_ INTEGER PRIMARY KEY,
+        id INTEGER PRIMARY KEY,
         naziv text NOT NULL,
         adresa text NOT NULL,
         telefon text NOT NULL);
@@ -38,8 +38,11 @@ def unesi_demo_podatke():
 
         CREATE TABLE narudzbe (
         id INTEGER PRIMARY KEY,
-        id_korisnik INTEGER FOREIGN KEY,
-        id_fast_food INTEGER FOREIGN KEY);
+        id_korisnik integer NOT NULL,
+        id_fast_food integer NOT NULL,
+        FOREIGN KEY (id_korisnik) REFERENCES korisnici (id),
+        FOREIGN KEY (id_fast_food) REFERENCES fast_food_ovi (id));
+        
 
         DROP TABLE IF EXISTS proizvodi;
 
@@ -51,16 +54,20 @@ def unesi_demo_podatke():
 
         CREATE TABLE proizvodi_fast_food (
         id INTEGER PRIMARY KEY,
-        id_proizvod INTEGER FOREIGN KEY,
-        id_fast_food INTEGER FOREIGN KEY,
-        cijena INTEGER NOT NULL);
+        id_proizvod integer NOT NULL,
+        id_fast_food integer NOT NULL,
+        cijena integer NOT NULL,
+        FOREIGN KEY (id_proizvod) REFERENCES proizvodi (id),
+        FOREIGN KEY (id_fast_food) REFERENCES fast_food_ovi (id));
 
         DROP TABLE IF EXISTS stavke;
 
         CREATE TABLE stavke (
         id INTEGER PRIMARY KEY,
-        id_narudzba INTEGER FOREIGN KEY,
-        id_proizvod_fast_food INTEGER FOREIGN KEY);
+        id_proizvodi_fast_food integer NOT NULL,
+        id_narudzba integer NOT NULL,
+        FOREIGN KEY (id_narudzba) REFERENCES proizvod_fast_food (id),
+        FOREIGN KEY (id_proizvodi_fast_food) REFERENCES narudzbe (id));
         """)
         
 
@@ -68,10 +75,14 @@ def unesi_demo_podatke():
         conn.commit()
         cur.execute("INSERT INTO korisnici (ime, email, password) VALUES (?, ?, ?)", ("Kreso", "kresko@email.com", "kresko"))
         conn.commit()
+        p_naziv = "Burger"
+        #cur.execute("INSERT INTO proizvodi (naziv) VALUES('Burger')")
+        #cur.execute("INSERT INTO proizvodi (naziv) VALUES(?)", (p_naziv))
         cur.execute("INSERT INTO proizvodi (naziv) VALUES (?)", ("Burger"))
         conn.commit()
-        cur.execute("INSERT INTO proizvodi (naziv) VALUES (?)", ("Pizza skampi"))
-        conn.commit()
+        #cur.execute("INSERT INTO proizvodi (naziv) VALUES('Pizza Škampi')")
+        #cur.execute("INSERT INTO proizvodi (naziv) VALUES (?)", "Pizza Škampi")
+        #conn.commit()
         cur.execute("INSERT INTO proizvodi_fast_food (cijena) VALUES (?)", (30))
         conn.commit()
 
@@ -86,10 +97,12 @@ def unesi_demo_podatke():
 def procitaj_sve_podatke():
     conn = sqlite3.connect("UPI-FF.db")
     lista_fast_food_ovi = []
+    lista_korisnici = []
     try:
 
         cur = conn.cursor()
         cur.execute(""" SELECT id, naziv, adresa, telefon FROM fast_food_ovi """)
+        cur.execute(""" SELECT id, ime, email, password FROM korisnici """)
 
         podaci = cur.fetchall()
         
@@ -114,6 +127,19 @@ def procitaj_sve_podatke():
     conn.close()
     return lista_fast_food_ovi
 
+def sacuvaj_novog_korisnika(username, email, password):
+    conn = sqlite3.connect("UPI-FF.db")
+    try:
+
+        cur = conn.cursor()
+        cur.execute("INSERT INTO korisnici (ime, email, password) VALUES (?, ?, ?)", (username, email, password))
+        conn.commit()
+
+        print("uspjesno dodan novi korisnik u bazu podataka")
+
+    except Exception as e: 
+        print("Dogodila se greska pri dodavanju novog korisnika u bazu podataka: ", e)
+        conn.rollback()
 
 def sacuvaj_novi_fast_food(naziv, adresa, telefon):
     conn = sqlite3.connect("UPI-FF.db")
