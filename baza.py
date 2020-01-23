@@ -75,18 +75,14 @@ def unesi_demo_podatke():
         conn.commit()
         cur.execute("INSERT INTO korisnici (ime, email, password) VALUES (?, ?, ?)", ("Kreso", "kresko@email.com", "kresko"))
         conn.commit()
-        p_naziv = "Burger"
-        #cur.execute("INSERT INTO proizvodi (naziv) VALUES('Burger')")
-        #cur.execute("INSERT INTO proizvodi (naziv) VALUES(?)", (p_naziv))
-        cur.execute("INSERT INTO proizvodi (naziv) VALUES (?)", ("Burger"))
-        conn.commit()
-        #cur.execute("INSERT INTO proizvodi (naziv) VALUES('Pizza Škampi')")
-        #cur.execute("INSERT INTO proizvodi (naziv) VALUES (?)", "Pizza Škampi")
-        #conn.commit()
-        cur.execute("INSERT INTO proizvodi_fast_food (cijena) VALUES (?)", (30))
-        conn.commit()
 
-        print("uspjesno uneseni testni podaci u tablicu fast_food_ovi!")
+        cur.execute("INSERT INTO proizvodi (naziv) VALUES (?)", ("Burger",))
+        conn.commit()
+        cur.execute("INSERT INTO proizvodi (naziv) VALUES (?)", ("Pizza Škampi",))
+        conn.commit()
+        
+
+        print("uspjesno uneseni testni podaci!")
 
     except Exception as e: 
         print("Dogodila se greska pri kreiranju demo podataka: ", e)
