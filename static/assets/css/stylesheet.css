@@ -1,3 +1,5 @@
+@import url(//netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.css);
+
 html, body 
 {
   height: 100%;
@@ -34,21 +36,16 @@ html, body
 .register-form input[type="submit"] {
   font-family: "Roboto", sans-serif;
   outline: 0;
-  background: #4CAF50;
   width: 100%;
   border: 0;
   padding: 15px;
-  color: #FFFFFF;
   font-size: 14px;
   transition: all 0.3s ease;
   -webkit-transition: all 0.3s ease;
   cursor: pointer;
-}
-
-.register-form input[type="submit"] {
   background: #343a40cc;
-    border-radius: 5px;
-    color: white;
+  border-radius: 5px;
+  color: white;
 }
 
 .register-form input[type="submit"]:hover {
@@ -67,6 +64,27 @@ html, body
   display: none;
 }
 
+.register-form .register-button, .register-form .login-button, .tab-content .orderConfirm-button, .tab-content .review-button, .tab-content .addFood-button
+{
+  font-family: "Roboto", sans-serif;
+  outline: 0;
+  width: 100%;
+  border: 0;
+  margin-top: 5px;
+  padding: 15px;
+  font-size: 14px;
+  transition: all 0.3s ease;
+  -webkit-transition: all 0.3s ease;
+  cursor: pointer;
+  background: #343a40cc;
+  border-radius: 5px;
+  color: white;
+}
+
+.register-form .register-button:hover, .register-form .login-button:hover, .tab-content .orderConfirm-button:hover, .tab-content .addFood-button:hover{
+  background: #43A047;
+}
+
 .restaurant-content-box {
   position: relative;
   z-index: 1;
@@ -75,11 +93,109 @@ html, body
   height: 80%;
   margin:auto;
   margin-top: 5%;
-  padding: 45px;
+  padding: 45px 2px;
   text-align: center;
   border-radius: 10px;
 }
 
+.restaurant-content-box .tab-content .articles
+{
+  display:flex;
+  align-items: center;
+  text-decoration:none;
+  color:rgba(50, 46, 56, 0.8);
+  font-weight:bold;
+  text-align: left;
+  border:none;
+  border-radius: 12px;  
+  width: 97%;
+  background-color:rgba(181, 186, 197, 0.30);
+  margin:10px;
+  padding: 3px;
+  transition: 0.1s ease-in-out all;
+  outline: none;
+}
+
+.restaurant-content-box .tab-content .articles .price
+{
+  display:inline-block;
+  text-decoration:none;
+  color:rgba(50, 46, 56, 0.8);
+  font-weight:bold;
+  margin: 10px;
+  border:none;
+  border-radius: 12px;
+  width: auto;
+  background-color:rgba(181, 186, 197, 0.50);
+  padding: 5px;
+  transition: 0.1s ease-in-out all;
+  outline: none;
+  
+}
+
+.tab-content .articles input[type="checkbox"], .sidedishes input[type="checkbox"]
+{
+  -ms-transform: scale(2); /* IE */
+  -moz-transform: scale(2); /* FF */
+  -webkit-transform: scale(2); /* Safari and Chrome */
+  -o-transform: scale(2); /* Opera */
+  transform: scale(2);
+  padding: 5px;
+  margin: auto 2% auto 2%;
+} 
+
+.tab-content .articles input[type="number"]
+{
+  width: 6%;
+  height: 4%;
+  padding: 5px;
+  margin: 0 10px 0 auto;
+  border-radius: 5px;
+  outline: none;
+  border: none;
+  box-shadow:3px 3px 3px 1px #95969e;
+} 
+
+.tab-content .articles .checkboxtext, .sidedishes .checkboxtext
+{ 
+  display: inline;
+}
+
+.tab-content .totalPrice
+{
+  display:inline-block;
+  text-decoration:none;
+  color:rgba(50, 46, 56, 0.8);
+  font-weight:bold;
+  margin-top: 8px;
+  border:none;
+  border-radius: 12px;
+  min-width: 30%;
+  background-color:rgba(181, 186, 197, 0.50);
+  padding: 8px;
+  transition: 0.1s ease-in-out all;
+  outline: none;
+}
+
+.tab-content input[type="submit"] {
+  font-family: "Roboto", sans-serif;
+  outline: 0;
+  width: 30%;
+  border: 0;
+  padding: 8px;
+  margin-top: 1%;
+  font-size: 14px;
+  transition: all 0.3s ease;
+  -webkit-transition: all 0.3s ease;
+  cursor: pointer;
+  background: #343a40cc;
+  border-radius: 10px;
+  color: white;
+}
+
+.tab-content input[type="submit"]:hover {
+  background: #43A047;
+}
 .restaurant-content-box .tablink {
   background-color: #343a40;
   color: white;
@@ -96,15 +212,161 @@ html, body
   background-color: #777;
 }
 
-.restaurant-content-box .tabcontent {
+.restaurant-content-box .tab-content {
   color: #343a40;
-  display: none;
-  padding: 100px 20px;
+  padding: 1%;
   height: 100%;
+  overflow: auto;
 }
 
-#Jelovnik {background-color: red;}
-#Recenzije {background-color: green;}
+
+.addFood input[type="text"]
+{
+  font-family: "Roboto", sans-serif;
+  outline: 0;
+  background: #f2f2f2;
+  width: 30%;
+  border: 0;
+  margin: 5px 10px;
+  padding: 10px;
+  box-sizing: border-box;
+  font-size: 14px;
+}
+
+.addFood input[type="number"]
+{
+  font-family: "Roboto", sans-serif;
+  outline: 0;
+  background: #f2f2f2;
+  width: 15%;
+  border: 0;
+  margin: 5px 10px;
+  padding: 10px;
+  box-sizing: border-box;
+  font-size: 14px;
+}
+
+.tab-content .addFood{
+  display:flex;
+  align-items: center;
+  text-decoration:none;
+  color:rgba(50, 46, 56, 0.8);
+  font-weight:bold;
+  text-align: center;
+  border:none;
+  border-radius: 12px;  
+  width: 85%;
+  background-color:rgba(99, 103, 112, 0.3);
+  margin: 5px auto 20px auto;
+  padding: 8px;
+  transition: 0.1s ease-in-out all;
+  outline: none;
+}
+
+.tab-content .extras
+{
+  display:inline-block;
+  align-items: center;
+  text-decoration:none;
+  background-color:rgba(191, 176, 214, 0.2);
+  font-weight:bold;
+  text-align: center;
+  border:none;
+  border-radius: 12px;  
+  width: 96%;
+  padding: 2px;
+  transition: 0.1s ease-in-out all;
+  outline: none;
+}
+
+.extras .sidedishes
+{
+  display:flex;
+  align-items: center;
+  text-decoration:none;
+  color:rgba(8, 8, 8, 0.8);
+  font-weight:bold;
+  text-align: center;
+  border:none;
+  border-radius: 12px;  
+  width: 93%;
+  background-color:rgba(126, 131, 138, 0.2);
+  margin: 10px 10px 7px 30px;
+  padding: 8px;
+  transition: 0.1s ease-in-out all;
+  outline: none;
+}
+
+.tab-content .review
+{
+  display:flex;
+  align-items: center;
+  text-decoration:none;
+  color:rgba(50, 46, 56, 0.8);
+  font-weight:bold;
+  text-align: left;
+  border:none;
+  border-radius: 12px;  
+  width: 97%;
+  background-color:rgba(181, 186, 197, 0.30);
+  margin: 5px auto 20px auto;
+  padding: 8px;
+  transition: 0.1s ease-in-out all;
+  outline: none;
+}
+
+.review .clmn
+{
+  display:flex;
+  flex-direction: column;
+  margin: 5px 20px 5px auto;
+}
+
+.review textarea[type="text"]
+{
+  font-family: "Roboto", sans-serif;
+  outline: 0;
+  background: #ffffff;
+  width: 70%;
+  margin: 5px auto 5px 20px;
+  border: 0;
+  padding: 10px;
+  box-sizing: border-box;
+  font-size: 14px;
+  border-radius: 10px;
+}
+
+.tab-content .reviewPrint
+{
+  display:flex;
+  align-items: center;
+  text-decoration:none;
+  color:rgba(50, 46, 56, 0.8);
+  font-weight:bold;
+  text-align: left;
+  border:none;
+  border-radius: 12px;  
+  width: 100%;
+  background-color:rgba(181, 186, 197, 0.30);
+  margin: 10px auto;
+  padding: 8px;
+  transition: 0.1s ease-in-out all;
+  outline: none;
+}
+
+.fa-star:hover{
+  color:yellow;
+  cursor: pointer;
+}
+
+.fa-star .checked{
+  color:yellow;
+}
+
+.fa-chevron-right:hover, .fa-chevron-left:hover{
+  color: rgb(31, 192, 40);
+  cursor: pointer;
+}
 
 .order-mainbox {
   position: relative;
@@ -112,7 +374,7 @@ html, body
   background: #FFFFFF;
   max-width: 80%;
   margin:auto;
-  margin-top: 15%;
+  margin-top: 1%;
   padding: 45px;
   text-align: center;
   border-radius: 10px;
@@ -165,7 +427,7 @@ html, body
   border:none;
   border-radius:12px;
   text-align:center;
-  background-color:rgba(181, 186, 197, 0.15);
+  background-color:rgba(37, 75, 158, 0.15);
     margin:10px;
   padding: 10px;
   transition: 0.1s ease-in-out all;
@@ -176,6 +438,9 @@ html, body
   color:rgb(97, 99, 104);
   box-shadow:4px 3px 4px 1px #e3e5f1;
 }
+
+
+
 .container {
   position: relative;
   z-index: 1;
@@ -221,4 +486,74 @@ body {
   font-family: "Roboto", sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;      
+}
+
+fieldset, label { margin: 0; padding: 0; }
+
+.rating { 
+  text-decoration:none;
+  color:rgba(94, 87, 105, 0.8);
+  /*margin: 0 10px 0 auto;*/
+  border:none;
+  border-radius: 12px;
+  width: auto;
+  background-color:rgba(44, 45, 49, 0.35);
+  padding: 2px;
+  transition: 0.1s ease-in-out all;
+  outline: none;
+}
+
+.rating > input { display: none; } 
+.rating > label:before { 
+  margin: 7px;
+  font-size: 1.25em;
+  font-family: FontAwesome;
+  display: inline-block;
+  content: "\f005";
+}
+
+.rating > .half:before { 
+  content: "\f089";
+  position: absolute;
+}
+
+.rating > label { 
+  color: #ddd; 
+ float: right; 
+}
+
+/***** CSS Magic to Highlight Stars on Hover *****/
+
+.rating > input:checked ~ label, /* show gold star when clicked */
+.rating:not(:checked) > label:hover, /* hover current star */
+.rating:not(:checked) > label:hover ~ label { color: #FFD700;  } /* hover previous stars in list */
+
+.rating > input:checked + label:hover, /* hover current star when changing rating */
+.rating > input:checked ~ label:hover,
+.rating > label:hover ~ input:checked ~ label, /* lighten current selection */
+.rating > input:checked ~ label:hover ~ label { color: #FFED85;  } 
+
+/* The alert message box */
+.alert {
+  padding: 20px;
+  background-color: #f44336; /* Red */
+  color: white;
+  margin-bottom: 15px;
+}
+
+/* The close button */
+.closebtn {
+  margin-left: 15px;
+  color: white;
+  font-weight: bold;
+  float: right;
+  font-size: 22px;
+  line-height: 20px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+/* When moving the mouse over the close button */
+.closebtn:hover {
+  color: black;
 }

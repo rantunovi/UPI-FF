@@ -32,20 +32,51 @@
 
   <div class="order-mainbox">
   Odaberite restoran iz kojeg želite naručiti.<br>
+  %for item in data:
   <div class="restaurant">
+    <img class="img-fluid" src="{{item.ikona}}"  height="42" width="42">
+  <a href="/restaurants{{item.path}}"><button class="button">{{item.naziv}}</button></a>
+    <a href="{{item.lokacija}} target="_blank"><img src="http://pluspng.com/img-png/png-location-big-image-png-2400.png" height="30" width="30" style="margin-right: 5px"></a>     
+    {{item.adresa}}
+  </div>
+  %end
+  <!-- <div class="restaurant">
       <img class="img-fluid" src="https://www.dobartek.hr/Resources/Restaurant/d2c55707-ffa4-486e-8e73-5e447d00dbd2.jpg"  height="42" width="42">
     <a href="sesula"><button class="button">Fast Food "Šešula"</button></a>
       <a href="https://www.google.com/maps?q=Dobrilina+1a,+Split&um=1&ie=UTF-8&sa=X&ved=2ahUKEwjXyKXKtprnAhXRk4sKHcHBDOMQ_AUoAXoECBMQAw" target="_blank"><img src="http://pluspng.com/img-png/png-location-big-image-png-2400.png" height="30" width="30" style="margin-right: 5px"></a>     
       Dobrilina 1a, Split
     </div>
     <div class="restaurant">
-    <img class="img-fluid" src="https://www.dobartek.hr/Resources/Restaurant/c45cd123-1eb7-43a1-8c7b-8aab857d4c5e.jpg" height="42" width="42">
-    <button class="button" onclick="window.location.href = '/mirakul';">"Mirakul" Pizza</button>
-  </button>
-  <a href="https://www.google.com/maps?q=Dobrilina+1a,+Split&um=1&ie=UTF-8&sa=X&ved=2ahUKEwjXyKXKtprnAhXRk4sKHcHBDOMQ_AUoAXoECBMQAw" target="_blank"><img src="http://pluspng.com/img-png/png-location-big-image-png-2400.png" height="30" width="30" style="margin-right: 5px"></a>     
-  Dubrovačka 20, Split
-  
-  </div>
+      <img class="img-fluid" src="https://www.dobartek.hr/Resources/Restaurant/c45cd123-1eb7-43a1-8c7b-8aab857d4c5e.jpg" height="42" width="42">
+      <button class="button" onclick="window.location.href = '/mirakul';">"Mirakul" Pizza</button>
+    </button>
+    <a href="https://www.google.com/maps/place/Mirakul/@43.5104958,16.4537034,17z/data=!3m1!4b1!4m5!3m4!1s0x13355e1a5128b9d9:0x8037a2872ff2ea62!8m2!3d43.5104919!4d16.4558921" target="_blank"><img src="http://pluspng.com/img-png/png-location-big-image-png-2400.png" height="30" width="30" style="margin-right: 5px"></a>     
+    Dubrovačka 20, Split
+    </div>
+    <div class="restaurant">
+      <img class="img-fluid" src="https://www.dobartek.hr/Resources/Restaurant/268bd732-0891-46eb-8c06-a02a30773b39.jpg"  height="42" width="42">
+      <button class="button" onclick="window.location.href = '/xxl';">Fast Food "XXL"</button>
+      <a href="https://www.google.com/maps/place/XXL+Fast+Food/@43.5182153,16.447518,17z/data=!3m1!4b1!4m5!3m4!1s0x13355e0dd5cba36d:0x618073cdc19dd103!8m2!3d43.5182114!4d16.4497067" target="_blank"><img src="http://pluspng.com/img-png/png-location-big-image-png-2400.png" height="30" width="30" style="margin-right: 5px"></a>     
+      Dubrovačka 61, Split
+    </div>
+    <div class="restaurant">
+      <img class="img-fluid" src="https://www.dobartek.hr/Resources/Restaurant/6c1997a2-d87b-4b99-9755-f1d42ef92856.jpg"  height="42" width="42">
+      <button class="button" onclick="window.location.href = '/gajeta';">Fast Food "Gajeta"</button>
+      <a href="https://www.google.com/maps/place/Gajeta/@43.5115211,16.4411093,15z/data=!4m8!1m2!2m1!1sgajeta+split!3m4!1s0x13355e17c185a9a1:0xa614eb26db4900b!8m2!3d43.5129251!4d16.4634563" target="_blank"><img src="http://pluspng.com/img-png/png-location-big-image-png-2400.png" height="30" width="30" style="margin-right: 5px"></a>     
+      Vukovarska 89A, Split
+    </div>
+    <div class="restaurant">
+      <img class="img-fluid" src="https://www.dobartek.hr/Resources/Restaurant/c3d21e4c-451b-4d7a-bd72-69d8e1d47946.jpg"  height="42" width="42">
+      <button class="button" onclick="window.location.href = '/in';">Fast Food "In"</button>
+      <a href="https://www.google.com/maps/place/Fast+Food+In/@43.5063131,16.4626497,17z/data=!3m1!4b1!4m5!3m4!1s0x13355fa23bc2aeff:0xc82b61629eedc02a!8m2!3d43.5063092!4d16.4648384" target="_blank"><img src="http://pluspng.com/img-png/png-location-big-image-png-2400.png" height="30" width="30" style="margin-right: 5px"></a>     
+      Bruna Bušića 2, Split
+    </div>
+    <div class="restaurant">
+      <img class="img-fluid" src="https://www.dobartek.hr/Resources/Restaurant/18726fa0-b5b2-453d-9ef6-e7c562ae5a00.jpg"  height="42" width="42">
+      <button class="button" onclick="window.location.href = '/vatra';">Fast Food "Vatra"</button>
+      <a href="https://www.google.com/maps/place/Fast+Food+Vatra/@43.5064926,16.4632071,17z/data=!3m1!4b1!4m5!3m4!1s0x13355f3314d1afab:0xb44fd90eaf7cfe32!8m2!3d43.5064887!4d16.4653958" target="_blank"><img src="http://pluspng.com/img-png/png-location-big-image-png-2400.png" height="30" width="30" style="margin-right: 5px"></a>     
+      Poljička cesta 30, Split
+    </div> -->
   </div>
 
 </body>

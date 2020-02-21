@@ -1,0 +1,8 @@
+# Napravis sessions tablicu u bazi (ili samo novo polje kod korisnika)
+    # Svaki put kad se korisnik logira napravit mu novi random string koji ce mu bit token i 
+    # a) spremit u bazu ako ne postoji ili 
+    # b) zaminit zadnji njegov token sa novim      
+    # Onda taj token proslijedit u frontend i svaki put on triba vratit taj token nazad
+    # Pomocu tog tokena trazis u bazi kome pripada 
+    # Sad kad znas korisnika mozes vidit jel korisnik vlasnik
+    # Ako je onda prikazujes posebne botune i slicno

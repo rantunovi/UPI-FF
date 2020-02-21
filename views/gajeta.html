@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Bottle web project template">
+  <meta name="author" content="datamate">
+
+  <title>Fast Food "Gajeta"</title>
+  <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css">
+  <link rel="stylesheet" type="text/css" href="/static/bootstrap.min.css">
+  <link rel="stylesheet" type="text/css" href="/static/custom.css">
+  <link rel="stylesheet" type="text/css" href="/static/stylesheet.css">
+  <link rel="stylesheet" type="text/css" href="/static/build.css">
+  <script type="text/javascript" src="/static/jquery.js"></script>
+  <script type="text/javascript" src="/static/bootstrap.min.js"></script>
+
+</head>
+
+<body>
+
+
+  <!-- Navigation -->
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark static-top">
+    <div class="container">
+      <a class="navbar-brand" href="#">Fast Food "Gajeta"</a>
+    </div>
+  </nav>
+
+  <!-- Page Content -->
+
+  <div class="restaurant-content-box">
+    <ul class="nav nav-tabs" id="myTab" role="tablist">
+      <li class="nav-item">
+        <a class="nav-link active" id="jelovnik-tab" data-toggle="tab" href="#jelovnik" role="tab"
+          aria-controls="jelovnik" aria-selected="true">Jelovnik</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" id="recenzije-tab" data-toggle="tab" href="#recenzije" role="tab" aria-controls="recenzije"
+          aria-selected="false">Recenzije</a>
+      </li>
+    </ul>
+
+    <div class="tab-content" id="myTabContent">
+      <div class="tab-pane fade show active" id="jelovnik" role="tabpanel" aria-labelledby="jelovnik-tab">
+        %for item in data[0]:
+        <div class="articles">
+          <input type="checkbox" name="{{item.id_proizvod}}" value="{{item.id_proizvod}}">
+          <span class="checkboxtext">{{item.id_proizvod}}</span>
+          <div class="price" data-price="{{item.cijena}}">{{item.cijena}} kn</div>
+          <input type="number" placeholder="0" min=0>
+        </div>
+        %end
+       
+        <div class="totalPrice"><i class="fas fa-shopping-cart" style="margin-right: 3%;"></i><span id="price"> 0</span> kn</div><br>
+        <button class="orderConfirm-button" style="width: 40%;">POTVRDI NARUDZBU</button>
+      </div>
+
+      <div class="tab-pane fade" id="recenzije" role="tabpanel" aria-labelledby="recenzije-tab">
+        <div class="review">
+          <textarea id="reviewDesc" name ="reviewDesc" type="text" placeholder="Opis Vaše recenzije..."></textarea>
+          <div class="clmn">
+            <div class="rating">
+              <input type="radio" id="star5" name="rating" value="5" /><label class = "full" for="star5"></label>
+              <input type="radio" id="star4" name="rating" value="4" /><label class = "full" for="star4"></label>
+              <input type="radio" id="star3" name="rating" value="3" /><label class = "full" for="star3"></label>
+              <input type="radio" id="star2" name="rating" value="2" /><label class = "full" for="star2"></label>
+              <input type="radio" id="star1" name="rating" value="1" /><label class = "full" for="star1"></label>
+            </div>
+            <button class="review-button" name="reviewbtn">SPREMI RECENZIJU</button>          
+          </div>
+        </div>
+        
+        %for item in data[1]:
+        <div class="review">
+          <div>{{item.komentar}}</div>
+          <div class="clmn">
+            {{item.ocjena}}/5
+            <div>{{item.id_korisnik}}</div>
+          </div>
+        </div>
+        %end
+      </div>
+
+    </div>
+  </div>
+  <script type="text/javascript" src="/static/custom.js"></script>
+
+</body>
+
+</html>
